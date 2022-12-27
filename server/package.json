@@ -1,0 +1,20 @@
+{
+  "type": "module",
+  "scripts": {
+    "start:ts": "tsc -w",
+    "start:js": "nodemon dist/index.js",
+    "start": "concurrently npm:start:*"
+  },
+  "dependencies": {
+    "concurrently": "^7.6.0",
+    "cors": "^2.8.5",
+    "nodemon": "^2.0.20",
+    "socket.io": "^4.5.4",
+    "ts-node": "^10.9.1",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.17",
+    "types": "file:../../../../uuid"
+  }
+}
