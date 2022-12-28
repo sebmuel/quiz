@@ -1,21 +1,22 @@
-import { Inter } from "@next/font/google";
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
 import { io } from "socket.io-client";
-
-const inter = Inter({ subsets: ["latin"] });
+import SocketContext from "../src/contexts/Socket/Context";
 
 export default function Home() {
-
-  useEffect(() => {
-    console.log("hi");
-    const server = io("http://localhost:3000/");
-  }, [])
+  const { socket, uid, users } = useContext(SocketContext).SocketState;
 
   return (
     <div className="">
-      <h2>Welcome To Anime Quiz!</h2>
-      <button>Create Room</button>
-      <button>Enter Room</button>
+      <h2>Socket IO Informations</h2>
+      <p>
+        Your user ID: <strong>{uid}</strong>
+      </p>
+      <p>
+        Users online: <strong>{users.length}</strong>
+      </p>
+      <p>
+        Socket ID: <strong>{socket?.id}</strong>
+      </p>
     </div>
   );
 }
